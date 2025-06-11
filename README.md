@@ -21,8 +21,7 @@
 - React
 - TypeScript
 - MUI (Material UI)
-- Webpack (по условию, не показан в коде)
-- Собственная кастомная цветовая схема аминокислот
+- Webpack
 - Clipboard API для копирования
 
 ---
