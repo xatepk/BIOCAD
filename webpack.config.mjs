@@ -1,15 +1,19 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
   entry: './src/index.tsx',
   output: {
-    path: path.join(__dirname, '/dist'), // the bundle output path
-    filename: 'main.js' // the name of the bundle
+    path: path.join(__dirname, '/build'),
+    filename: 'main.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/public/index.html' // to import index.html file inside index.js
+      template: 'src/public/index.html'
     })
   ],
   resolve: {
@@ -25,7 +29,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/, // .js and .jsx files
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'ts-loader'
