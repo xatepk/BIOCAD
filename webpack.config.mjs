@@ -9,7 +9,8 @@ export default {
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, '/build'),
-    filename: 'main.js'
+    filename: 'main.js',
+    publicPath: './'
   },
   plugins: [
     new HtmlWebpackPlugin({
