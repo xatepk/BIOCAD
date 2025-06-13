@@ -9,8 +9,8 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack serve --mode development",
+    "build": "NODE_ENV=production webpack --mode production",
+    "dev": "NODE_ENV=development webpack serve --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "eslint ./src --ext .ts,.tsx,.js,.jsx --fix",

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { ThemeProvider, CssBaseline, Container, Typography, Box } from '@mui/material';
-import theme from './theme';
-import { FormInputs } from './types';
-import { AlignmentForm } from './components/AlignmentForm';
-import { AlignmentView } from './components/AlignmentView';
-import { titleStyles, fullScreenContainerStyles, backgroundStyles, formContainerStyles } from './styles/App.styles';
+import aminSvg from '@assets/amin.svg';
+import theme from '@src/theme';
+import { FormInputs } from '@src/types';
+import { backgroundStyles, formContainerStyles, fullScreenContainerStyles, titleStyles } from '@src/styles/App.styles';
+import { AlignmentForm } from '@src/components/AlignmentForm';
+import { AlignmentView } from '@src/components/AlignmentView';
 
 const App: React.FC = () => {
   const [alignment, setAlignment] = useState<FormInputs | null>(null);
@@ -17,7 +18,7 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={fullScreenContainerStyles}>
-        <Box sx={backgroundStyles} />
+        <Box component={'img'} src={aminSvg} alt="" sx={backgroundStyles} />
         <Container maxWidth="sm" sx={formContainerStyles}>
           <Typography variant="h5" sx={titleStyles} gutterBottom>
             Визуализация выравнивания аминокислотных последовательностей

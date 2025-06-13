@@ -5,12 +5,14 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export default {
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, '/build'),
     filename: 'main.js',
-    publicPath: '/',
+    publicPath: isProduction ? './' : '/',
   },
   plugins: [
     new HtmlWebpackPlugin({

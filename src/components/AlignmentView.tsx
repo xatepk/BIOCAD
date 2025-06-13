@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Snackbar } from '@mui/material';
-import { aminoAcidColors } from '../constants/aminoAcidColors';
-import { FormInputs } from '../types';
+import { FormInputs } from '@src/types';
 import {
   backgroundRowStyles,
   boxStyles,
+  CHAR_WIDTH,
   chunkContainerStyles,
-  preStyles,
-  CHAR_WIDTH
-} from '../styles/AlignmentView.styles';
+  preStyles
+} from '@src/styles/AlignmentView.styles';
+import { aminoAcidColors } from '@src/constants/aminoAcidColors';
 
 type Props = {
   alignment: FormInputs;
@@ -57,7 +57,7 @@ export const AlignmentView: React.FC<Props> = ({ alignment }) => {
             : aminoAcidColors[char] || 'transparent';
           return (
             <Box
-              key={idx}
+              key={`${char}-${idx}`}
               sx={{
                 ...boxStyles,
                 backgroundColor: bgColor
@@ -94,3 +94,4 @@ export const AlignmentView: React.FC<Props> = ({ alignment }) => {
     </Box>
   );
 };
+

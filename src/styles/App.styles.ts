@@ -14,12 +14,10 @@ export const backgroundStyles = {
   left: 0,
   width: '100%',
   height: '100%',
-  backgroundImage: 'url(./assets/amin.svg)',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
+  objectFit: 'cover',
   opacity: 0.3,
   zIndex: -1,
+  pointerEvents: 'none',
 };
 
 export const formContainerStyles = {
