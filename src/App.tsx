@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { ThemeProvider, CssBaseline, Container, Typography } from '@mui/material';
+import { ThemeProvider, CssBaseline, Container, Typography, Box } from '@mui/material';
 import theme from './theme';
 import { FormInputs } from './types';
 import { AlignmentForm } from './components/AlignmentForm';
 import { AlignmentView } from './components/AlignmentView';
-import { titleStyles } from './styles/App.styles';
+import { titleStyles, fullScreenContainerStyles, backgroundStyles, formContainerStyles } from './styles/App.styles';
 
 const App: React.FC = () => {
   const [alignment, setAlignment] = useState<FormInputs | null>(null);
@@ -16,15 +16,18 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth="sm" sx={{ mt: 5, mb: 5 }}>
-        <Typography variant="h5" sx={titleStyles} gutterBottom>
-          Визуализация выравнивания аминокислотных последовательностей
-        </Typography>
+      <Box sx={fullScreenContainerStyles}>
+        <Box sx={backgroundStyles} />
+        <Container maxWidth="sm" sx={formContainerStyles}>
+          <Typography variant="h5" sx={titleStyles} gutterBottom>
+            Визуализация выравнивания аминокислотных последовательностей
+          </Typography>
 
-        <AlignmentForm onSubmit={handleSubmit} />
+          <AlignmentForm onSubmit={handleSubmit} />
 
-        {alignment && <AlignmentView alignment={alignment} />}
-      </Container>
+          {alignment && <AlignmentView alignment={alignment} />}
+        </Container>
+      </Box>
     </ThemeProvider>
   );
 };

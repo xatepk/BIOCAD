@@ -8,7 +8,7 @@ import {
   chunkContainerStyles,
   preStyles,
   CHAR_WIDTH
-} from './AlignmentView.styles';
+} from '../styles/AlignmentView.styles';
 
 type Props = {
   alignment: FormInputs;

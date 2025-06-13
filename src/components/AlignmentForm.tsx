@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { TextField, Button, Box } from '@mui/material';
-import { FormInputs } from '../types';
-import { validateSequence, validateEqualLength } from '../validation/alignmentValidation';
-import { AlignmentView } from './AlignmentView';
+import { AlignmentView } from '@src/components/AlignmentView';
+import { validateEqualLength, validateSequence } from '@src/validation/alignmentValidation';
+import { FormInputs } from '@src/types';
 
 type AlignmentFormProps = {
   onSubmit?: SubmitHandler<FormInputs>;
@@ -29,7 +29,7 @@ export const AlignmentForm: React.FC<AlignmentFormProps> = () => {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+    <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{minHeight: 300}}>
       <Controller
         name="seq1"
         control={control}
